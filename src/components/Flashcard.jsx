@@ -24,37 +24,38 @@ export default function Flashcard({
 
                 {/* เส้นคั่นส่วนคำถามและคำตอบ */}
                 <div className="w-full h-px bg-slate-200 my-6"></div>
-                
+
                 <div>
 
-                    {/* ตรวจสอบเงื่อนไข ขึ้นอยู่กับกด show answer รึยัง */}
-                    {showAnswer ?
+                    {
+                        // ตรวจสอบเงื่อนไข ขึ้นอยู่กับกด reveal answer รึยัง โดย default = false ก็จะให้แสดงปุ่ม reveal answer กอน
+                        showAnswer ?
 
-                        // if true
-                        <div>
+                            // if true
+                            <div>
 
-                            {/* คำตอบ */}
-                            <p className="text-lg mb-8">
-                                {card.answer}
-                            </p>
+                                {/* คำตอบ */}
+                                <p className="text-lg mb-8">
+                                    {card.answer}
+                                </p>
 
-                            {/* ปุ่มให้เลือกว่าจำได้หรือไม่ */}
-                            <div className="flex gap-4 justify-center">
-                                <button onClick={() => (onNext(true))} className="px-6 py-2 bg-emerald-500 hover:bg-emerald-600 text-white font-medium rounded-lg shadow-sm w-24">
-                                    Yes
-                                </button>
-                                <button onClick={() => (onNext(false))} className="px-6 py-2 bg-rose-500 hover:bg-rose-600 text-white font-medium rounded-lg shadow-sm w-24">
-                                    No
-                                </button>
+                                {/* ปุ่มให้เลือกว่าจำได้หรือไม่ */}
+                                <div className="flex gap-4 justify-center">
+                                    <button onClick={() => (onNext(true))} className="px-6 py-2 bg-emerald-500 hover:bg-emerald-600 text-white font-medium rounded-lg shadow-sm w-24">
+                                        Yes
+                                    </button>
+                                    <button onClick={() => (onNext(false))} className="px-6 py-2 bg-rose-500 hover:bg-rose-600 text-white font-medium rounded-lg shadow-sm w-24">
+                                        No
+                                    </button>
+                                </div>
                             </div>
-                        </div>
 
-                        :
+                            :
 
-                        // if false
-                        <button onClick={onReveal} className="border border-slate-200 shadow-md">
-                            Reveal Answer
-                        </button>
+                            // if false
+                            <button onClick={onReveal} className="border border-slate-200 shadow-md">
+                                Reveal Answer
+                            </button>
                     }
                 </div>
             </div>
