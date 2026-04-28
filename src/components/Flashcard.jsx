@@ -9,34 +9,61 @@ export default function Flashcard({
 }) {
     return (
         <div>
-            <h1>
+
+
+            {/* คำถามที่ ... */}
+            <h3 className="text-2xl font-semibold mb-6">
                 Question {currentIndex+1} of {totalCards}
-            </h1>
-            <div>
+            </h3>
+
+            {/* เริ่มส่วนการ์ด */}
+            <div className="border border-slate-200 rounded-xl p-8 min-h-[300px] flex flex-col justify-center items-center text-center shadow-md bg-white">
+
+                {/* คำถาม */}
                 {card.question}
-            </div>
-            <div>
-                {showAnswer ?
-                    <div>
-                        {card.answer}
+
+            
+                <div>
+                    {/* ตรวจสอบเงื่อนไข ขึ้นอยู่กับกด show answer รึยัง */}
+                    {showAnswer ?
+
+                        // if true
                         <div>
-                            <button onClick={() => (onNext(true))}>
-                                Yes
-                            </button>
-                            <button onClick={() => (onNext(false))}>
-                                No
-                            </button>
+                            {/* เส้นคั่นเมื่อคำตอบแสดง */}
+                            <div className="w-full h-px bg-slate-200 my-6"></div>
+
+                            {/* คำตอบ */}
+                            <p className="text-lg mb-8">
+                                {card.answer}
+                            </p>
+
+                            {/* ปุ่มให้เลือกว่าจำได้หรือไม่ */}
+                            <div className="flex gap-4 justify-center">
+                                <button onClick={() => (onNext(true))} className="px-6 py-2 bg-emerald-500 hover:bg-emerald-600 text-white font-medium rounded-lg shadow-sm w-24">
+                                    Yes
+                                </button>
+                                <button onClick={() => (onNext(false))} className="px-6 py-2 bg-rose-500 hover:bg-rose-600 text-white font-medium rounded-lg shadow-sm w-24">
+                                    No
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    :
-                    <button onClick={onReveal} className="border border-slate-200 shadow-md">
-                        Reveal Answer
-                    </button>
-                }
+
+                        :
+
+                        // if false
+                        <button onClick={onReveal} className="border border-slate-200 shadow-md">
+                            Reveal Answer
+                        </button>
+                    }
+                </div>
             </div>
+
+            {/* บอกคะแนนปัจจุบัน */}
             <div>
                 Current Score: {score}
             </div>
+
+
         </div>
     );
 }
