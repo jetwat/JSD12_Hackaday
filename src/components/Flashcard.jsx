@@ -40,6 +40,9 @@ export default function Flashcard({
                                 </p>
 
                                 {/* ปุ่มให้เลือกว่าจำได้หรือไม่ */}
+                                <div className="mb-3">
+                                    Did you get it right?
+                                </div>
                                 <div className="flex gap-4 justify-center">
                                     <button onClick={() => (onNext(true))} className="px-6 py-2 bg-emerald-500 hover:bg-emerald-600 text-white font-medium rounded-lg shadow-sm w-24">
                                         Yes
