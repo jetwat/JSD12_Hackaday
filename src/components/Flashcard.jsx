@@ -22,15 +22,16 @@ export default function Flashcard({
                 {/* คำถาม */}
                 {card.question}
 
-            
+                {/* เส้นคั่นส่วนคำถามและคำตอบ */}
+                <div className="w-full h-px bg-slate-200 my-6"></div>
+                
                 <div>
+
                     {/* ตรวจสอบเงื่อนไข ขึ้นอยู่กับกด show answer รึยัง */}
                     {showAnswer ?
 
                         // if true
                         <div>
-                            {/* เส้นคั่นเมื่อคำตอบแสดง */}
-                            <div className="w-full h-px bg-slate-200 my-6"></div>
 
                             {/* คำตอบ */}
                             <p className="text-lg mb-8">
